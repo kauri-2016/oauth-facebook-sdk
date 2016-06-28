@@ -1,4 +1,4 @@
-/* global FB */
+/* global FB, checkLoginState */
 window.fbAsyncInit = function () {
   FB.init({
     appId: '',
@@ -7,6 +7,12 @@ window.fbAsyncInit = function () {
     version: 'v2.6'
   })
 
+  FB.getLoginStatus((response) => {
+    statusChangeCallback(response)
+  })
+}
+
+function checkLoginState () {
   FB.getLoginStatus((response) => {
     statusChangeCallback(response)
   })
